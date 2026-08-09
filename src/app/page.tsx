@@ -16,7 +16,14 @@ export default function Home() {
       
       const slug = file.replace(/\.mdx$/, '');
       const title = data.title || slug;
-      const date = data.date || '';
+      let date = '';
+      if (data.date) {
+        try {
+          date = new Date(data.date).toISOString().split('T')[0];
+        } catch(e) {
+          date = String(data.date);
+        }
+      }
       const category = data.category || 'RESEARCH';
       
       // Clean up markdown boilerplate to extract a pure text excerpt

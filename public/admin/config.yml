@@ -1,0 +1,23 @@
+local_backend: true
+backend:
+  name: github
+  repo: engnrhussein/somali-energy-desk
+  branch: cms-integration
+
+media_folder: "public/assets"
+public_folder: "/assets"
+
+collections:
+  - name: "briefs"
+    label: "Research Briefs"
+    folder: "content/briefs"
+    create: true
+    extension: "mdx"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}

@@ -1,31 +1,26 @@
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
+import matter from "gray-matter";
 import ScrollLink from "../components/ScrollLink";
 
 export default function Home() {
-  const briefsDir = path.join(process.cwd(), 'src/app/briefs');
+  const briefsDir = path.join(process.cwd(), 'content/briefs');
   let briefs: any[] = [];
   if (fs.existsSync(briefsDir)) {
-    const folders = fs.readdirSync(briefsDir);
-    briefs = folders.map(folder => {
-      const mdxPath = path.join(briefsDir, folder, 'page.mdx');
-      if (!fs.existsSync(mdxPath)) return null;
+    const files = fs.readdirSync(briefsDir);
+    briefs = files.filter(f => f.endsWith('.mdx')).map(file => {
+      const mdxPath = path.join(briefsDir, file);
+      const fileContent = fs.readFileSync(mdxPath, 'utf8');
+      const { data, content } = matter(fileContent);
       
-      const content = fs.readFileSync(mdxPath, 'utf8');
+      const slug = file.replace(/\.mdx$/, '');
+      const title = data.title || slug;
+      const date = data.date || '';
+      const category = data.category || 'RESEARCH';
       
-      const titleMatch = content.match(/title:\s*['"]([^'"]+)['"]/);
-      const title = titleMatch ? titleMatch[1] : folder;
-      
-      const dateMatch = content.match(/\*\*Published:\*\*\s*([^\s|]+)/);
-      const date = dateMatch ? dateMatch[1] : '';
-
-      const catMatch = content.match(/\*\*Category:\*\*\s*([^\s|\n]+)/);
-      const category = catMatch ? catMatch[1] : 'RESEARCH';
-      
-      // Clean up MDX boilerplate to extract a pure text excerpt
-      let cleanContent = content.replace(/export\s+const\s+metadata\s*=\s*\{[\s\S]*?\};/g, '');
-      cleanContent = cleanContent.replace(/^#+\s+.*$/gm, '');
+      // Clean up markdown boilerplate to extract a pure text excerpt
+      let cleanContent = content.replace(/^#+\s+.*$/gm, '');
       cleanContent = cleanContent.replace(/^\*\*.*$/gm, '');
       cleanContent = cleanContent.replace(/^---+$/gm, '');
       cleanContent = cleanContent.replace(/[#*`_\[\]>]/g, '');
@@ -41,8 +36,8 @@ export default function Home() {
         }
       }
 
-      return { slug: folder, title, date, category, excerpt };
-    }).filter(Boolean);
+      return { slug, title, date, category, excerpt };
+    });
     
     // Sort descending
     briefs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

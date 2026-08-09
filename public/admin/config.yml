@@ -3,6 +3,8 @@ backend:
   name: github
   repo: engnrhussein/somali-energy-desk
   branch: cms-integration
+  pkce: true
+  app_id: Ov23liRSjIOkF0tBGCMv
 
 media_folder: "public/assets"
 public_folder: "/assets"

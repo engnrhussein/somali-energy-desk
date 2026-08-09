@@ -43,8 +43,7 @@
   font-size: 0.85rem;
 }
 .prose thead {
-  background-color: #1a1a1a;
-  color: #fff;
+  color: var(--color-onyx);
 }
 .prose th {
   padding: 10px 14px;
@@ -58,7 +57,4 @@
 .prose td {
   padding: 10px 14px;
   border: 1px solid #d4d4d4;
-}
-.prose tbody tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.03);
 }

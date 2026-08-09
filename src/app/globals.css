@@ -1,26 +1,35 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --color-onyx: #111111;
+  --color-onyx-muted: #2d2d2d;
+  --color-safety: #ff5a00;
+  --color-safety-dark: #e04800;
+  --color-crisp: #eee9e1;
+  --color-slate-gray: #555555;
+  --color-slate-light: #e5e5e5;
+  --color-slate-dim: #888888;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-crisp);
+    --foreground: var(--color-onyx);
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased font-sans selection:bg-safety selection:text-white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .border-hairline {
+    @apply border border-slate-light dark:border-onyx-muted;
+  }
 }

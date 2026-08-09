@@ -53,7 +53,7 @@ export default async function BriefPage(
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-8 mt-8">
+    <>
       <header className="mb-12">
         <h1 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight mb-4 uppercase">{data.title}</h1>
         <div className="flex items-center gap-4 text-xs font-mono font-bold tracking-widest text-slate-dim uppercase">
@@ -63,9 +63,7 @@ export default async function BriefPage(
         </div>
       </header>
       
-      <div className="w-full">
-        <MDXRemote source={content} />
-      </div>
-    </div>
+      <MDXRemote source={content} />
+    </>
   );
 }

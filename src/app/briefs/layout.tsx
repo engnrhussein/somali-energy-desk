@@ -14,7 +14,7 @@ export default function BriefLayout({ children }: { children: React.ReactNode })
         The typography plugin 'prose' class gives standard markdown (like h1, h2, p, blockquote, ul, ol) 
         beautiful default styling designed for readability.
       */}
-      <article className="prose prose-slate max-w-3xl mx-auto prose-headings:font-black prose-headings:tracking-tight prose-h2:text-xl prose-h3:text-base prose-a:text-safety hover:prose-a:text-safety-dark prose-p:font-medium prose-p:text-onyx prose-p:leading-relaxed prose-blockquote:border-safety prose-blockquote:bg-white/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:text-slate-gray">
+      <article className="prose prose-slate max-w-3xl mx-auto prose-headings:font-black prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-2 prose-h3:text-base prose-p:text-sm prose-a:text-safety hover:prose-a:text-safety-dark prose-p:font-medium prose-p:text-onyx prose-p:leading-relaxed prose-blockquote:border-safety prose-blockquote:bg-white/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:text-slate-gray">
         {children}
       </article>
     </div>

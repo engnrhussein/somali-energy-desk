@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -63,7 +64,7 @@ export default async function BriefPage(
         </div>
       </header>
       
-      <MDXRemote source={content} />
+      <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
     </>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function BriefLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-crisp py-24 px-8">
+    <div className="min-h-screen bg-crisp py-6 px-8">
       <div className="max-w-5xl mx-auto mb-16">
         <Link href="/#research" className="font-mono text-xs text-safety font-bold tracking-widest uppercase hover:text-safety-dark transition-colors inline-flex items-center gap-2">
           &larr; Back to Research Feed

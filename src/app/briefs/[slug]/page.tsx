@@ -55,7 +55,7 @@ export default async function BriefPage(
   return (
     <>
       <header className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight mb-4 uppercase">{data.title}</h1>
+        <h1 className="text-2xl md:text-3xl font-black tracking-tighter leading-tight mb-4 uppercase">{data.title}</h1>
         <div className="flex items-center gap-4 text-xs font-mono font-bold tracking-widest text-slate-dim uppercase">
           <span>{dateString}</span>
           <span>&bull;</span>

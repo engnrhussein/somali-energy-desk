@@ -3,8 +3,7 @@ backend:
   name: github
   repo: engnrhussein/somali-energy-desk
   branch: cms-integration
-  pkce: true
-  app_id: Ov23liRSjIOkF0tBGCMv
+  base_url: https://sveltia-cms-auth.abdallahussein713.workers.dev
 
 media_folder: "public/assets"
 public_folder: "/assets"

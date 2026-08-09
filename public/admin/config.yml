@@ -2,7 +2,7 @@ local_backend: true
 backend:
   name: github
   repo: engnrhussein/somali-energy-desk
-  branch: cms-integration
+  branch: main
   base_url: https://sveltia-cms-auth.abdallahussein713.workers.dev
 
 media_folder: "public/assets"

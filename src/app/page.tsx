@@ -123,7 +123,7 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {briefs.map((brief) => (
-                <Link key={brief.slug} href={`/briefs/${brief.slug}`} className="group flex flex-col justify-between block p-10 bg-white border border-slate-light hover:border-safety transition-colors shadow-sm hover:shadow-md">
+                <a key={brief.slug} href={`/briefs/${brief.slug}`} className="group flex flex-col justify-between block p-10 bg-white border border-slate-light hover:border-safety transition-colors shadow-sm hover:shadow-md">
                   <div>
                     <span className="font-mono text-[10px] text-safety font-bold tracking-widest uppercase mb-4 block">
                       {brief.category} — {brief.date || 'DRAFT'}
@@ -138,7 +138,7 @@ export default function Home() {
                   <div className="mt-8 font-mono text-xs font-bold tracking-widest uppercase text-slate-dim group-hover:text-onyx transition-colors">
                     Read Brief &rarr;
                   </div>
-                </Link>
+                </a>
               ))}
             </div>
           )}

@@ -112,8 +112,8 @@ export default function Home() {
       </section>
 
       {/* Latest Research Feed */}
-      <section id="research" className="px-8 py-24 border-t border-hairline flex-1">
-        <div className="max-w-6xl mx-auto">
+      <section className="px-8 py-24 border-t border-hairline flex-1">
+        <div id="research" className="max-w-6xl mx-auto scroll-mt-8">
           <div className="mb-12">
             <h2 className="text-xs font-mono font-bold tracking-widest uppercase text-slate-gray">Latest Research</h2>
           </div>

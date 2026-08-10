@@ -105,7 +105,7 @@ export default function Home() {
                 Somali Energy Desk
               </text>
               
-              <line x1="245" y1="180" x2="680" y2="180" stroke="#CCCCCC" strokeWidth="3" />
+              <line x1="246.29883" y1="180" x2="624.60938" y2="180" stroke="#CCCCCC" strokeWidth="2.80188" />
             </g>
           </svg>
         </div>

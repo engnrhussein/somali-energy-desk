@@ -31,7 +31,7 @@ collections:
       preview: false
     sortable_fields:
       - title
-      - { field: date, default_sort: desc }
+      - date
       - commit_date
     fields:
       - {label: "Title", name: "title", widget: "string"}

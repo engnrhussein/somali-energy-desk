@@ -19,7 +19,7 @@ export default function Home() {
       let date = '';
       if (data.date) {
         try {
-          date = new Date(data.date).toISOString().split('T')[0];
+          date = new Date(data.date).toISOString();
         } catch(e) {
           date = String(data.date);
         }
@@ -131,12 +131,12 @@ export default function Home() {
                   <a key={brief.slug} href={`/briefs/${brief.slug}`} className="group flex flex-col justify-between block p-10 bg-white border border-slate-light hover:border-safety transition-colors shadow-sm hover:shadow-md">
                     <div>
                       <span className="font-mono text-[10px] text-safety font-bold tracking-widest uppercase mb-4 block">
-                        {brief.category} — {brief.date ? brief.date.split(' ')[0] : 'DRAFT'}
+                        {brief.category} — {brief.date ? brief.date.split('T')[0] : 'DRAFT'}
                       </span>
                       <h3 className="text-2xl md:text-3xl font-black font-sans tracking-tight mb-4 group-hover:text-safety transition-colors leading-tight">
                         {brief.title}
                       </h3>
-                      <p className="text-sm text-slate-gray font-medium leading-relaxed">
+                      <p className="text-sm text-slate-gray font-medium leading-relaxed line-clamp-2">
                         {brief.excerpt}
                       </p>
                     </div>
@@ -147,8 +147,8 @@ export default function Home() {
                 ))}
               </div>
               
-              <div className="flex justify-start">
-                <Link href="/briefs" className="font-mono text-sm font-bold tracking-widest uppercase text-onyx hover:text-safety transition-colors border-b border-transparent hover:border-safety pb-1">
+              <div className="flex justify-end">
+                <Link href="/briefs" className="font-mono text-sm font-bold tracking-widest uppercase text-onyx hover:text-safety transition-colors">
                   Read more &rarr;
                 </Link>
               </div>

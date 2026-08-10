@@ -19,7 +19,7 @@ export default function BriefsPage() {
       let date = '';
       if (data.date) {
         try {
-          date = new Date(data.date).toISOString().split('T')[0];
+          date = new Date(data.date).toISOString();
         } catch(e) {
           date = String(data.date);
         }
@@ -55,14 +55,6 @@ export default function BriefsPage() {
 
   return (
     <div className="flex flex-col min-h-full">
-      <section className="px-8 py-24 md:py-32 w-full flex flex-col items-start overflow-hidden border-b border-hairline bg-white">
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8">
-          DATA <span className="text-slate-gray">BRIEFS</span>
-        </h1>
-        <p className="max-w-2xl text-lg text-slate-dim font-medium leading-relaxed">
-          The complete archive of research, quantitative analysis, and meteorological assessments published by the Somali Energy Desk.
-        </p>
-      </section>
 
       <section className="px-8 py-16 flex-1 bg-white">
         <BriefsListClient briefs={briefs} />

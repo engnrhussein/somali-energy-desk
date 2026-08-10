@@ -38,28 +38,28 @@ export default function BriefsListClient({ briefs }: Props) {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
-      <div className="flex flex-col gap-0 mb-12">
+    <div className="w-full max-w-5xl mx-auto flex flex-col min-h-[calc(100vh-300px)]">
+      <div className="flex flex-col gap-0 mb-12 flex-1">
         {currentBriefs.map((brief) => (
           <Link 
             key={brief.slug} 
             href={`/briefs/${brief.slug}`} 
-            className="group flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center py-8 border-b border-slate-light hover:border-safety transition-colors"
+            className="group flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center py-8 border-b border-slate-light hover:bg-slate-50 transition-colors px-4 -mx-4 rounded-lg"
           >
             <div className="w-full md:w-1/4 shrink-0">
               <span className="font-mono text-[10px] text-safety font-bold tracking-widest uppercase block mb-2">
                 {brief.category}
               </span>
               <span className="font-mono text-xs text-slate-dim font-bold tracking-widest uppercase block">
-                {brief.date || 'DRAFT'}
+                {brief.date ? brief.date.split('T')[0] : 'DRAFT'}
               </span>
             </div>
             
             <div className="w-full md:w-3/4">
-              <h3 className="text-xl md:text-3xl font-black font-sans tracking-tight mb-3 group-hover:text-safety transition-colors leading-tight">
+              <h3 className="text-xl md:text-3xl font-black font-sans tracking-tight mb-3 group-hover:text-safety transition-colors leading-tight line-clamp-2">
                 {brief.title}
               </h3>
-              <p className="text-sm text-slate-gray font-medium leading-relaxed">
+              <p className="text-sm text-slate-gray font-medium leading-relaxed line-clamp-2">
                 {brief.excerpt}
               </p>
             </div>

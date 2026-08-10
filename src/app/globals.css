@@ -56,6 +56,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.75rem;
+  vertical-align: middle;
 }
 .prose td {
   padding: 10px 14px;
@@ -63,10 +64,4 @@
   border-bottom: 1px solid #d4d4d4;
   border-left: 1.5px solid #333;
   border-right: 1.5px solid #333;
-}
-
-@media (max-width: 767px) {
-  .prose th {
-    vertical-align: middle;
-  }
 }

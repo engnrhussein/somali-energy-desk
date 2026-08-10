@@ -35,7 +35,7 @@ collections:
       - commit_date
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss"}
       - {label: "Category", name: "category", widget: "string"}
       - {label: "Is Draft?", name: "is_draft", widget: "boolean", default: false, required: false}
       - {label: "Hide Post?", name: "is_hidden", widget: "boolean", default: false, required: false}

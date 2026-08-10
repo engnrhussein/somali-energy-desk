@@ -8,6 +8,11 @@ backend:
 media_folder: "public/assets"
 public_folder: "/assets"
 
+slug:
+  encoding: "ascii"
+  clean_replacement: "-"
+  sanitize_replacement: "-"
+
 collections:
   - name: "briefs"
     label: "Research Briefs"

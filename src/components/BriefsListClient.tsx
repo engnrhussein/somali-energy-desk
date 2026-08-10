@@ -17,7 +17,7 @@ interface Props {
 
 export default function BriefsListClient({ briefs }: Props) {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15;
+  const itemsPerPage = 10;
   const totalPages = Math.max(1, Math.ceil(briefs.length / itemsPerPage));
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -44,7 +44,7 @@ export default function BriefsListClient({ briefs }: Props) {
           <Link 
             key={brief.slug} 
             href={`/briefs/${brief.slug}`} 
-            className="group flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center py-8 border-b border-slate-light hover:bg-slate-50 transition-colors px-4 -mx-4 rounded-lg"
+            className="group flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center py-8 border-b border-slate-light hover:bg-slate-50 transition-colors px-4 -mx-4 rounded-lg !no-underline !text-onyx"
           >
             <div className="w-full md:w-1/4 shrink-0">
               <span className="font-mono text-[10px] text-safety font-bold tracking-widest uppercase block mb-2">
@@ -72,29 +72,27 @@ export default function BriefsListClient({ briefs }: Props) {
         )}
       </div>
 
-      {totalPages > 1 && (
-        <div className="flex items-center justify-between border-t border-slate-light pt-8 mt-8">
-          <div className="text-xs font-mono font-bold tracking-widest text-slate-dim uppercase">
-            Page {currentPage} of {totalPages}
-          </div>
-          <div className="flex gap-4">
-            <button 
-              onClick={prevPage}
-              disabled={currentPage === 1}
-              className="w-12 h-12 flex items-center justify-center border border-slate-light disabled:opacity-30 hover:border-safety hover:text-safety transition-colors font-mono font-bold"
-            >
-              &lt;
-            </button>
-            <button 
-              onClick={nextPage}
-              disabled={currentPage === totalPages}
-              className="w-12 h-12 flex items-center justify-center border border-slate-light disabled:opacity-30 hover:border-safety hover:text-safety transition-colors font-mono font-bold"
-            >
-              &gt;
-            </button>
-          </div>
+      <div className="flex items-center justify-between border-t border-slate-light pt-8 mt-8">
+        <div className="text-xs font-mono font-bold tracking-widest text-slate-dim uppercase">
+          Page {currentPage} of {totalPages}
         </div>
-      )}
+        <div className="flex gap-4">
+          <button 
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className="w-12 h-12 flex items-center justify-center border border-slate-light disabled:opacity-30 hover:border-safety hover:text-safety transition-colors font-mono font-bold !no-underline !text-onyx"
+          >
+            &lt;
+          </button>
+          <button 
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+            className="w-12 h-12 flex items-center justify-center border border-slate-light disabled:opacity-30 hover:border-safety hover:text-safety transition-colors font-mono font-bold !no-underline !text-onyx"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -56,7 +56,7 @@ export default function BriefsPage() {
   return (
     <div className="flex flex-col min-h-full">
 
-      <section className="px-8 py-16 flex-1 bg-white">
+      <section className="px-8 flex-1 bg-white">
         <BriefsListClient briefs={briefs} />
       </section>
     </div>

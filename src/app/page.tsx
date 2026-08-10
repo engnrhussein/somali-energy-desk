@@ -125,26 +125,34 @@ export default function Home() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {briefs.map((brief) => (
-                <a key={brief.slug} href={`/briefs/${brief.slug}`} className="group flex flex-col justify-between block p-10 bg-white border border-slate-light hover:border-safety transition-colors shadow-sm hover:shadow-md">
-                  <div>
-                    <span className="font-mono text-[10px] text-safety font-bold tracking-widest uppercase mb-4 block">
-                      {brief.category} — {brief.date || 'DRAFT'}
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-black font-sans tracking-tight mb-4 group-hover:text-safety transition-colors leading-tight">
-                      {brief.title}
-                    </h3>
-                    <p className="text-sm text-slate-gray font-medium leading-relaxed">
-                      {brief.excerpt}
-                    </p>
-                  </div>
-                  <div className="mt-8 font-mono text-xs font-bold tracking-widest uppercase text-slate-dim group-hover:text-onyx transition-colors">
-                    Read Brief &rarr;
-                  </div>
-                </a>
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                {briefs.slice(0, 4).map((brief) => (
+                  <a key={brief.slug} href={`/briefs/${brief.slug}`} className="group flex flex-col justify-between block p-10 bg-white border border-slate-light hover:border-safety transition-colors shadow-sm hover:shadow-md">
+                    <div>
+                      <span className="font-mono text-[10px] text-safety font-bold tracking-widest uppercase mb-4 block">
+                        {brief.category} — {brief.date ? brief.date.split(' ')[0] : 'DRAFT'}
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-black font-sans tracking-tight mb-4 group-hover:text-safety transition-colors leading-tight">
+                        {brief.title}
+                      </h3>
+                      <p className="text-sm text-slate-gray font-medium leading-relaxed">
+                        {brief.excerpt}
+                      </p>
+                    </div>
+                    <div className="mt-8 font-mono text-xs font-bold tracking-widest uppercase text-slate-dim group-hover:text-onyx transition-colors">
+                      Read Brief &rarr;
+                    </div>
+                  </a>
+                ))}
+              </div>
+              
+              <div className="flex justify-start">
+                <Link href="/briefs" className="font-mono text-sm font-bold tracking-widest uppercase text-onyx hover:text-safety transition-colors border-b border-transparent hover:border-safety pb-1">
+                  Read more &rarr;
+                </Link>
+              </div>
+            </>
           )}
         </div>
       </section>

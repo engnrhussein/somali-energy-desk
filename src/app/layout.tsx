@@ -48,7 +48,7 @@ export default function RootLayout({
             <span className="text-sm font-medium tracking-widest text-slate-dim uppercase">Somali Energy Desk</span>
           </div>
           <nav className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-gray">
-            <ScrollLink href="/#research" className="hover:text-safety transition-colors">DATA BRIEFS</ScrollLink>
+            <Link href="/briefs" className="hover:text-safety transition-colors">DATA BRIEFS</Link>
             <Link href="/publications" className="hover:text-safety transition-colors">PUBLICATIONS</Link>
             <Link href="/about" className="hover:text-safety transition-colors">ABOUT</Link>
           </nav>

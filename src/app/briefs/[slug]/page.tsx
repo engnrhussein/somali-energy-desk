@@ -11,7 +11,12 @@ export async function generateStaticParams() {
   if (!fs.existsSync(briefsDirectory)) return [];
   const files = fs.readdirSync(briefsDirectory);
   return files
-    .filter(file => file.endsWith('.mdx'))
+    .filter(file => {
+      if (!file.endsWith('.mdx')) return false;
+      const fileContent = fs.readFileSync(path.join(briefsDirectory, file), 'utf8');
+      const { data } = matter(fileContent);
+      return !data.is_draft && !data.is_hidden;
+    })
     .map((file) => ({
       slug: file.replace(/\.mdx$/, ''),
     }));
@@ -27,6 +32,9 @@ export async function generateMetadata(
   }
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data } = matter(fileContent);
+  if (data.is_draft || data.is_hidden) {
+    return { title: 'Not Found' };
+  }
   return {
     title: data.title,
   };
@@ -44,6 +52,11 @@ export default async function BriefPage(
 
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
+  
+  if (data.is_draft || data.is_hidden) {
+    notFound();
+  }
+
   let dateString = '';
   if (data.date) {
     try {

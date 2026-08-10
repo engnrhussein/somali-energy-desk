@@ -26,6 +26,10 @@ export default function Home() {
       }
       const category = data.category || 'RESEARCH';
       
+      if (data.is_draft || data.is_hidden) {
+        return null;
+      }
+      
       // Clean up markdown boilerplate to extract a pure text excerpt
       let cleanContent = content.replace(/^#+\s+.*$/gm, '');
       cleanContent = cleanContent.replace(/^\*\*.*$/gm, '');
@@ -44,7 +48,7 @@ export default function Home() {
       }
 
       return { slug, title, date, category, excerpt };
-    });
+    }).filter(Boolean);
     
     // Sort descending
     briefs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

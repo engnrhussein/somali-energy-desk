@@ -15,10 +15,19 @@ collections:
     create: true
     extension: "mdx"
     format: "frontmatter"
+    view_filters:
+      - label: Drafts
+        field: is_draft
+        pattern: true
+      - label: Hidden
+        field: is_hidden
+        pattern: true
     editor:
       preview: false
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
       - {label: "Category", name: "category", widget: "string"}
+      - {label: "Is Draft?", name: "is_draft", widget: "boolean", default: false, required: false}
+      - {label: "Hide Post?", name: "is_hidden", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown"}

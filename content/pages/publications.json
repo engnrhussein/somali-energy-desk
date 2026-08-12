@@ -1,0 +1,32 @@
+{
+  "author_pubs": [
+    {
+      "status": "Peer Reviewed • Upcoming 2026",
+      "title": "Techno-Economic Viability of Offshore Wind Integration in the Somali Basin",
+      "description": "A comprehensive computational fluid dynamics analysis modeling turbine stress loads against seasonal monsoon variations off the coast of Mogadishu. Demonstrates a projected Levelized Cost of Energy (LCOE) significantly lower than diesel baseloads.",
+      "bottom_status": "Awaiting Publication"
+    },
+    {
+      "status": "Working Paper",
+      "title": "Thermodynamic Efficiency of Utility-Scale BESS in High-Temperature Coastal Environments",
+      "description": "Evaluating thermal runaway risks and cooling efficiency requirements for lithium-ion battery storage arrays deployed in equatorial East Africa.",
+      "bottom_status": "In Progress"
+    }
+  ],
+  "external_pubs": [
+    {
+      "publisher": "IRENA • 2025",
+      "title": "Horn of Africa Energy Transition Outlook",
+      "description": "A comprehensive macro-economic overview of wind and solar potential across the Eastern African seaboard, analyzing cross-border transmission capabilities.",
+      "link_text": "Read Paper →",
+      "link_url": "#"
+    },
+    {
+      "publisher": "World Bank Group • 2024",
+      "title": "De-risking Renewable Investments in Fragile Markets",
+      "description": "Financial frameworks and guarantees necessary to catalyze private capital into utility-scale storage and generation projects in Somalia.",
+      "link_text": "Read Paper →",
+      "link_url": "#"
+    }
+  ]
+}

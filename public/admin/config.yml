@@ -40,3 +40,59 @@ collections:
       - {label: "Is Draft?", name: "is_draft", widget: "boolean", default: false, required: false}
       - {label: "Hide Post?", name: "is_hidden", widget: "boolean", default: false, required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/home.json"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Hero Title Line 1", name: "hero_title_1", widget: "string"}
+          - {label: "Hero Title Line 2", name: "hero_title_2", widget: "string"}
+          - {label: "Hero Title Line 3", name: "hero_title_3", widget: "string"}
+          - {label: "Hero Description", name: "hero_description", widget: "text"}
+      - file: "content/pages/about.json"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Profile Image", name: "image", widget: "image"}
+          - {label: "Profile Title Line 1", name: "profile_title_1", widget: "string"}
+          - {label: "Profile Title Line 2", name: "profile_title_2", widget: "string", required: false}
+          - {label: "Profile Subtitle", name: "profile_subtitle", widget: "string"}
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Paragraph 1", name: "p1", widget: "text"}
+              - {label: "Paragraph 2", name: "p2", widget: "text", required: false}
+      - file: "content/pages/publications.json"
+        label: "Publications Page"
+        name: "publications"
+        fields:
+          - label: "Author Publications"
+            name: "author_pubs"
+            widget: "list"
+            fields:
+              - {label: "Status", name: "status", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Status Label (Bottom)", name: "bottom_status", widget: "string", required: false}
+              - {label: "Link URL", name: "link_url", widget: "string", required: false}
+          - label: "External Publications"
+            name: "external_pubs"
+            widget: "list"
+            fields:
+              - {label: "Publisher & Year", name: "publisher", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Link Text", name: "link_text", widget: "string"}
+              - {label: "Link URL", name: "link_url", widget: "string"}
+  - name: "settings"
+    label: "Settings"
+    files:
+      - file: "content/settings/global.json"
+        label: "Global Settings"
+        name: "global"
+        fields:
+          - {label: "Footer Copyright Text", name: "footer_text", widget: "string", hint: "The year is automatically prepended to this text"}

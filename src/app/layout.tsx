@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, JetBrains_Mono } from "next/font/google";
@@ -17,6 +19,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalPath = path.join(process.cwd(), 'content/settings/global.json');
+  let globalData = {
+    footer_text: "SOMALI ENERGY DESK. ALL RIGHTS RESERVED."
+  };
+
+  try {
+    if (fs.existsSync(globalPath)) {
+      globalData = JSON.parse(fs.readFileSync(globalPath, 'utf8'));
+    }
+  } catch (e) {}
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${jetbrains.variable} font-sans min-h-screen flex flex-col relative`}>
@@ -64,7 +77,7 @@ export default function RootLayout({
         </div>
 
         <footer className="w-full border-t border-hairline py-8 px-8 flex flex-col md:flex-row justify-between text-xs font-mono text-slate-dim">
-          <span>&copy; {new Date().getFullYear()} SOMALI ENERGY DESK. ALL RIGHTS RESERVED.</span>
+          <span>&copy; {new Date().getFullYear()} {globalData.footer_text}</span>
         </footer>
       </body>
     </html>

@@ -5,6 +5,19 @@ import matter from "gray-matter";
 import ScrollLink from "../components/ScrollLink";
 
 export default function Home() {
+  const homePath = path.join(process.cwd(), 'content/pages/home.json');
+  let homeData = { 
+    hero_title_1: "QUANTIFYING", 
+    hero_title_2: "THE HORN'S", 
+    hero_title_3: "ENERGY TRANSITION.", 
+    hero_description: "Rigorous, data-driven engineering and economic analysis of renewable energy feasibility in the Somali Indian Ocean coastline and the broader Horn of Africa region. Independent research for developers, academia, and policy architects." 
+  };
+  try {
+    if (fs.existsSync(homePath)) {
+      homeData = JSON.parse(fs.readFileSync(homePath, 'utf8'));
+    }
+  } catch (e) {}
+
   const briefsDir = path.join(process.cwd(), 'content/briefs');
   let briefs: any[] = [];
   if (fs.existsSync(briefsDir)) {
@@ -62,12 +75,12 @@ export default function Home() {
         {/* Left: Text Content */}
         <div className="w-full max-w-5xl shrink-0 lg:w-auto z-10">
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8">
-            QUANTIFYING <br />
-            <span className="text-slate-gray">THE HORN&apos;S</span> <br />
-            ENERGY TRANSITION.
+            {homeData.hero_title_1} <br />
+            <span className="text-slate-gray">{homeData.hero_title_2}</span> <br />
+            {homeData.hero_title_3}
           </h1>
           <p className="max-w-2xl text-lg text-slate-dim font-medium leading-relaxed mb-12">
-            Rigorous, data-driven engineering and economic analysis of renewable energy feasibility in the Somali Indian Ocean coastline and the broader Horn of Africa region. Independent research for developers, academia, and policy architects.
+            {homeData.hero_description}
           </p>
           <div className="flex gap-4">
             <ScrollLink href="/#research" className="px-6 py-3 bg-onyx text-crisp font-bold tracking-widest text-xs hover:bg-safety transition-colors uppercase">
